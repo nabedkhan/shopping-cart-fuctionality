@@ -1,0 +1,73 @@
+body{
+	background: #fff;
+}
+h3 {
+    font-size: 24px;
+	color: #7A5FD9;
+	margin-bottom: 0px;
+}
+h4{
+	color: #7A5FD9;
+}
+.cart{
+	margin: 100px 0;
+	background-color: #7A5FD9;
+	padding: 60px 0;
+}
+.cart-item{
+	background-color: #fff;
+	padding: 15px 20px;
+	margin-bottom: 20px;
+}
+.center-item{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.cart-item img{
+	width: 115px;
+}
+.cart-item h5{
+	color: #7A5FD9;
+	width: 250px;
+	margin-bottom: 0px;
+	text-align: center;
+}
+.btn-default{
+	background-color: transparent;
+	margin: 5px;
+}
+.btn-default:focus{
+	outline: none;
+	border-color: transparent;
+	box-shadow: none;
+}
+.cart-item .form-control{
+	background-color: #F6F5FA;
+    border: none;
+    font-weight: 700;
+    font-size: 18px;
+    width: 60px;
+}
+.check-out{
+    float: right;
+    padding: 10px 30px;
+	font-size: 20px;
+	background-color: #fff;
+	border: none;
+	border-radius: 0px;
+	outline: none;
+	color: #7A5FD9;
+}
+.remove-item{
+	color: #7A5FD9;
+	font-size: 22px;
+}
+.remove-item:hover{
+	color: #000;
+}
+.amount-calculate{
+	background-color: #fff;
+	padding: 15px 20px;
+	margin-bottom: 20px;
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <title>Shopping Cart</title>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet" />
+   <link href="css/style.css" rel="stylesheet">
+   <link href="css/responsive.css" rel="stylesheet">
+</head>
+
+<body>
+
+   <section>
+      <div class="container">
+         <div class="cart">
+            <div class="col-md-12 col-lg-10 mx-auto">
+               <div class="cart-item">
+                  <div class="row">
+                     <div class="col-lg-6 col-md-7 center-item">
+                        <img src="images/product-1.png" class="img-fluid">
+                        <h3>iPhone 11 128GB Black</h3>
+                     </div>
+
+                     <div class="col-lg-6 col-md-5 center-item">
+                        <div class="input-group">
+                           <button class="btn btn-default" id="minusIcon1"><i class="fas fa-minus"></i></button>
+                           <input type="text" class="form-control text-center" value="1" id="countItem1" disabled>
+                           <button class="btn btn-default" id="plusIcon1"><i class="fas fa-plus"></i></button>
+                        </div>
+                        <h5>$<span id="itemPrice1">1219</span> </h5>
+                        <a href="#" class="remove-item"><i class="far fa-times-circle"></i></a>
+                     </div>
+
+                  </div>
+               </div>
+
+               <div class="cart-item">
+                  <div class="row">
+                     <div class="col-lg-6 col-md-7 center-item mx-auto">
+                        <img src="images/iphoneX.jpg" class="img-fluid">
+                        <h3>iPhone X 128GB - White</h3>
+                     </div>
+                     <div class="col-lg-6 col-md-5 center-item">
+                        <div class="input-group">
+                           <button class="btn btn-default" id="minusIcon2"><i class="fas fa-minus"></i></button>
+                           <input type="text" class="form-control text-center" value="1" id="countItem2" disabled>
+                           <button class="btn btn-default" id="plusIcon2"><i class="fas fa-plus"></i></button>
+                        </div>
+                        <h5>$<span id="itemPrice2">599</span> </h5>
+                        <a href="#" class="remove-item"><i class="far fa-times-circle"></i></a>
+                     </div>
+                  </div>
+               </div>
+
+               <div class="amount-calculate">
+                  <div class="row">
+                     <div class="col-md-8 col-7">
+                        <h4 class="border-bottom">Subtotal: </h4>
+                        <h4 class="border-bottom">Tax:</h4>
+                        <h4 class="border-bottom">Total:</h4>
+                     </div>
+                     <div class="col-md-4 col-5 text-right">
+                        <h4>$<span id="subTotal">1818</span></h4>
+                        <h4>$<span id="tax">00</span></h4>
+                        <h4>$<span id="total">1818</span></h4>
+                     </div>
+                  </div>
+               </div>
+
+               <div class="row">
+                  <div class="col-md-12">
+                     <button type="button" class="btn check-out">Check Out</button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <script src="js/app.js"></script>
+</body>
+
+</html>
