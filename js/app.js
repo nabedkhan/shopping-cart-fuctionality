@@ -3,14 +3,12 @@ const plusIcon1 = document.getElementById('plusIcon1');
 const minusIcon1 = document.getElementById('minusIcon1');
 const countItem1 = document.getElementById('countItem1');
 const itemPrice1 = document.getElementById('itemPrice1');
-
 // selector for second item
 const plusIcon2 = document.getElementById('plusIcon2');
 const minusIcon2 = document.getElementById('minusIcon2');
 const countItem2 = document.getElementById('countItem2');
 const itemPrice2 = document.getElementById('itemPrice2');
-
-
+// selector for price total and tax
 const subTotal = document.getElementById('subTotal');
 const total = document.getElementById('total');
 const tax = document.getElementById('tax');
@@ -42,21 +40,14 @@ function addItem(itemNum, totalPrice, amount, subTotal) {
     itemNum.value = updateItem;
     const updatePrice = amount * updateItem;
     totalPrice.innerText = updatePrice;
+
     // Sub total amount
     const subTotalAmount = parseInt(subTotal.innerText);
     const updateSubTotal = subTotalAmount + amount;
     subTotal.innerText = updateSubTotal;
 
-    //tax ammount 
-    if (updateSubTotal > 5000) {
-        var updateTax = parseFloat(updateSubTotal * 0.01);
-        tax.innerText = updateTax.toFixed(2);
-    }
-
-    // total amount
-    const currentTax = parseFloat(tax.innerText)
-    const updateTotalAmount = updateSubTotal + currentTax;
-    total.innerText = updateTotalAmount;
+    // tax and total amount function called
+    taxAndTotalAmount(updateSubTotal);
 }
 /// function for remove quantity
 function removeItem(itemNum, totalPrice, amount, subTotal) {
@@ -72,17 +63,22 @@ function removeItem(itemNum, totalPrice, amount, subTotal) {
         const updateSubTotal = subTotalAmount - amount;
         subTotal.innerText = updateSubTotal;
 
-        // tax amount
-        if (updateSubTotal > 5000) {
-            const updateTax = parseFloat(updateSubTotal * 0.01);
-            tax.innerText = updateTax;
-        } else {
-            tax.innerText = 00;
-        }
-
-        // total amount
-        const currentTax = parseFloat(tax.innerText)
-        const updateTotalAmount = updateSubTotal + currentTax;
-        total.innerText = updateTotalAmount;
+        // tax and total amount function called
+        taxAndTotalAmount(updateSubTotal);
     }
+}
+
+// tax amount function
+function taxAndTotalAmount(inputSubTotal) {
+    // tax amount
+    if (inputSubTotal > 5000) {
+        const updateTax = parseFloat(inputSubTotal * 0.01);
+        tax.innerText = updateTax.toFixed(2);
+    } else {
+        tax.innerText = 00;
+    }
+    // total amount
+    const currentTax = parseFloat(tax.innerText)
+    const updateTotalAmount = inputSubTotal + currentTax;
+    total.innerText = updateTotalAmount;
 }
