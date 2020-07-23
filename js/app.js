@@ -120,7 +120,7 @@ checkoutBtn.addEventListener('click', function () {
         if (totalPrice > 0) {
             const cartArea = document.getElementById('cart-area');
             cartArea.style.display = 'none';
-            message.style.visibility = 'visible'
+            message.style.display = 'flex';
         } else {
             alert('Please Select atleast one product');
         }

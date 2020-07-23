@@ -72,8 +72,7 @@ h4{
 	margin-bottom: 20px;
 }
 #message{
-	visibility: hidden;
-	display: flex;
+	display: none;
 	justify-content: center;
 	align-items: center;
 	height: 100vh;
