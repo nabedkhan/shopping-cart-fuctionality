@@ -12,6 +12,9 @@ const itemPrice2 = document.getElementById('itemPrice2');
 const subTotal = document.getElementById('subTotal');
 const total = document.getElementById('total');
 const tax = document.getElementById('tax');
+// selector for delete prouct from checkout
+const remove1 = document.getElementById('remove1');
+const remove2 = document.getElementById('remove2');
 
 // add quantity event listener for item-1
 plusIcon1.addEventListener('click', function (e) {
@@ -22,7 +25,6 @@ minusIcon1.addEventListener('click', function (e) {
     removeItem(countItem1, itemPrice1, 1219, subTotal);
 });
 
-
 // add quantity event listener for item-2
 plusIcon2.addEventListener('click', function (e) {
     addItem(countItem2, itemPrice2, 599, subTotal)
@@ -31,6 +33,20 @@ plusIcon2.addEventListener('click', function (e) {
 minusIcon2.addEventListener('click', function (e) {
     removeItem(countItem2, itemPrice2, 599, subTotal);
 });
+
+// delete prouct from checkout
+remove1.addEventListener('click', function () {
+    const cart1 = document.getElementById('item-1');
+    cart1.style.display = 'none';
+    /// clear total price
+    removeTotalAmount(itemPrice1, subTotal);
+})
+remove2.addEventListener('click', function () {
+    const cart2 = document.getElementById('item-2');
+    cart2.style.display = 'none';
+    /// clear total price
+    removeTotalAmount(itemPrice2, subTotal);
+})
 
 
 /// function for add quantity
@@ -51,7 +67,7 @@ function addItem(itemNum, totalPrice, amount, subTotal) {
 }
 /// function for remove quantity
 function removeItem(itemNum, totalPrice, amount, subTotal) {
-    let currentItem = parseInt(itemNum.value);
+    const currentItem = parseInt(itemNum.value);
     if (currentItem > 1) {
         const updateItem = currentItem - 1;
         itemNum.value = updateItem;
@@ -82,3 +98,31 @@ function taxAndTotalAmount(inputSubTotal) {
     const updateTotalAmount = inputSubTotal + currentTax;
     total.innerText = updateTotalAmount;
 }
+
+// when click remove icon in product delete suntotal,tax, total 
+function removeTotalAmount(input1, input2) {
+    // Sub total amount
+    const currrentAmount = parseFloat(input1.innerText);
+    const subTotalAmount = parseInt(input2.innerText);
+    const updateSubTotal = subTotalAmount - currrentAmount;
+    subTotal.innerText = updateSubTotal;
+
+    // tax and total amount function called
+    taxAndTotalAmount(updateSubTotal);
+}
+
+/// Checkout Button event handler
+const checkoutBtn = document.getElementById('check-out');
+const message = document.getElementById('message');
+checkoutBtn.addEventListener('click', function () {
+    setTimeout(function () {
+        const totalPrice = parseFloat(total.innerText);
+        if (totalPrice > 0) {
+            const cartArea = document.getElementById('cart-area');
+            cartArea.style.display = 'none';
+            message.style.visibility = 'visible'
+        } else {
+            alert('Please Select atleast one product');
+        }
+    }, 500)
+})

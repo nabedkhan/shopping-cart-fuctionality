@@ -71,3 +71,16 @@ h4{
 	padding: 15px 20px;
 	margin-bottom: 20px;
 }
+#message{
+	visibility: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+.message-content{
+	background-color: #7A5FD9;
+	color: #fff;
+	padding: 100px;
+	text-align: center;
+}
