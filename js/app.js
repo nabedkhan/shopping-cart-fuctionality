@@ -38,16 +38,17 @@ minusIcon2.addEventListener('click', function () {
 remove1.addEventListener('click', function () {
     const cart1 = document.getElementById('item-1');
     cart1.style.display = 'none';
+
     /// clear total price
     removeTotalAmount(itemPrice1, subTotal);
-})
+});
 remove2.addEventListener('click', function () {
     const cart2 = document.getElementById('item-2');
     cart2.style.display = 'none';
+
     /// clear total price
     removeTotalAmount(itemPrice2, subTotal);
-})
-
+});
 
 /// function for add quantity
 function addItem(itemNum, totalPrice, amount, subTotal) {
@@ -94,6 +95,7 @@ function taxAndTotalAmount(inputSubTotal) {
     } else {
         tax.innerText = 00;
     }
+
     // total amount
     const currentTax = parseFloat(tax.innerText)
     const updateTotalAmount = inputSubTotal + currentTax;
@@ -118,11 +120,14 @@ const cartArea = document.getElementById('cart-area');
 const message = document.getElementById('message');
 const preLoader = document.querySelector('.loader-img');
 const messageContent = document.querySelector('.message-content');
-checkoutBtn.addEventListener('click', function (e) {
+
+// checkout button event listener
+checkoutBtn.addEventListener('click', function () {
     cartArea.style.display = 'none';
     message.style.display = 'flex';
     preLoader.style.display = 'block';
 
+    // message show after 2 secend
     setTimeout(function () {
         const totalPrice = parseFloat(total.innerText);
         if (totalPrice > 0) {
@@ -136,6 +141,4 @@ checkoutBtn.addEventListener('click', function (e) {
             cartArea.style.display = 'block';
         }
     }, 2000);
-
-    e.preventDefault();
 })
