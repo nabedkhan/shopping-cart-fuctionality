@@ -17,20 +17,20 @@ const remove1 = document.getElementById('remove1');
 const remove2 = document.getElementById('remove2');
 
 // add quantity event listener for item-1
-plusIcon1.addEventListener('click', function (e) {
+plusIcon1.addEventListener('click', function () {
     addItem(countItem1, itemPrice1, 1219, subTotal, tax);
 });
 // remove quantity event listener for item-1
-minusIcon1.addEventListener('click', function (e) {
+minusIcon1.addEventListener('click', function () {
     removeItem(countItem1, itemPrice1, 1219, subTotal);
 });
 
 // add quantity event listener for item-2
-plusIcon2.addEventListener('click', function (e) {
+plusIcon2.addEventListener('click', function () {
     addItem(countItem2, itemPrice2, 599, subTotal)
 });
 // remove quantity event listener for item-2
-minusIcon2.addEventListener('click', function (e) {
+minusIcon2.addEventListener('click', function () {
     removeItem(countItem2, itemPrice2, 599, subTotal);
 });
 
@@ -65,6 +65,7 @@ function addItem(itemNum, totalPrice, amount, subTotal) {
     // tax and total amount function called
     taxAndTotalAmount(updateSubTotal);
 }
+
 /// function for remove quantity
 function removeItem(itemNum, totalPrice, amount, subTotal) {
     const currentItem = parseInt(itemNum.value);
@@ -113,16 +114,28 @@ function removeTotalAmount(input1, input2) {
 
 /// Checkout Button event handler
 const checkoutBtn = document.getElementById('check-out');
+const cartArea = document.getElementById('cart-area');
 const message = document.getElementById('message');
-checkoutBtn.addEventListener('click', function () {
+const preLoader = document.querySelector('.loader-img');
+const messageContent = document.querySelector('.message-content');
+checkoutBtn.addEventListener('click', function (e) {
+    cartArea.style.display = 'none';
+    message.style.display = 'flex';
+    preLoader.style.display = 'block';
+
     setTimeout(function () {
         const totalPrice = parseFloat(total.innerText);
         if (totalPrice > 0) {
-            const cartArea = document.getElementById('cart-area');
+            preLoader.style.display = 'none';
+            messageContent.style.display = 'block';
             cartArea.style.display = 'none';
-            message.style.display = 'flex';
         } else {
             alert('Please Select atleast one product');
+            message.style.display = 'none';
+            preLoader.style.display = 'none';
+            cartArea.style.display = 'block';
         }
-    }, 500)
+    }, 2000);
+
+    e.preventDefault();
 })

@@ -78,8 +78,12 @@ h4{
 	height: 100vh;
 }
 .message-content{
+	display: none;
 	background-color: #7A5FD9;
 	color: #fff;
 	padding: 100px;
 	text-align: center;
+}
+.loader-img{
+	display: none;
 }
